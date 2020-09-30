@@ -16,11 +16,15 @@ class Weather():
         return self.data['weather'][0]['main']
 
     def temperature(self):
-        """ Returns a list containing different temperatures and humidity """
+        """ Returns a dict containing different temperatures and humidity """
         return self.data['main']
+    
+    def wind(self):
+        """ Returns dict containing wind parameters """
+        return self.data['wind']
 
 if __name__ == '__main__':
     url = "http://api.openweathermap.org/data/2.5/weather?id=792078&units=metric&appid=07b8e95750270c86b32d751ea6719ca6"
     wapp = Weather(url)
 
-    print(wapp.temperature())
+    print(wapp.wind())

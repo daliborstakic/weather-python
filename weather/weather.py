@@ -23,9 +23,3 @@ class Weather():
     def wind(self):
         """ Returns dict containing wind parameters """
         return self.data['wind']
-
-if __name__ == '__main__':
-    url = "http://api.openweathermap.org/data/2.5/weather?id=792078&units=metric&appid=07b8e95750270c86b32d751ea6719ca6"
-    wapp = Weather(url)
-
-    print(wapp.weather)

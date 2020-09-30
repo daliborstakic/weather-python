@@ -6,13 +6,16 @@ class AppGUI():
         self.master = master
         self.app = app
 
+        # Window title
+        self.master.title(f"Weather for {app.city_name}")
+
         # City name
-        self.city = Label(master, text=app.city_name)
-        self.city.grid(row=0, column=0, padx=5, pady=5)
+        self.city = Label(master, text=app.city_name, font=('Arial', 18))
+        self.city.grid(row=0, columnspan=2, padx=5, pady=5)
 
         # Weather
         self.weather = Label(master, text=f"Type: {app.weather}")
-        self.weather.grid(row=1, column=0, padx=5, pady=5)
+        self.weather.grid(row=1, columnspan=2, padx=5, pady=5)
 
         # Temperature
         self.max_t = Label(master, text=f"Max temperature: {app.temperature()['temp_max']}°C")
@@ -22,7 +25,7 @@ class AppGUI():
         self.min_t.grid(row=2, column=1, padx=5, pady=5)
 
         self.feels = Label(master, text=f"Feels like: {app.temperature()['feels_like']}°C")
-        self.feels.grid(row=3, column=0, padx=5, pady=5)
+        self.feels.grid(row=3, columnspan=2, padx=5, pady=5)
 
         # Air pressure
         self.pressure = Label(master, text=f"Pressure: {app.temperature()['pressure']}mbar")

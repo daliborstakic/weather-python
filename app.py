@@ -1,10 +1,14 @@
 from weather.wgui import AppGUI
 from weather.weather import Weather
 from tkinter import Tk
+import json
 
 if __name__ == '__main__':
-    url = "http://api.openweathermap.org/data/2.5/weather?id=792078&units=metric&appid=07b8e95750270c86b32d751ea6719ca6"
-    wapp = Weather(url)
+    # Loading API url
+    with open('api_key.json') as json_file:
+        key_dict = json.load(json_file)
+
+    wapp = Weather(key_dict['url'])
 
     # GUI
     root = Tk()

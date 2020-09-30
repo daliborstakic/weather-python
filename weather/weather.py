@@ -8,8 +8,15 @@ class Weather():
 
     @property
     def city_name(self):
+        """ Returns city name """
         return self.data['name']
+
+    def get_weather(self):
+        """ Returns weather type, e.g. Clouds, Clear """
+        return self.data['weather'][0]['main']
 
 if __name__ == '__main__':
     url = "http://api.openweathermap.org/data/2.5/weather?id=792078&units=metric&appid=07b8e95750270c86b32d751ea6719ca6"
     wapp = Weather(url)
+
+    print(wapp.get_weather())
